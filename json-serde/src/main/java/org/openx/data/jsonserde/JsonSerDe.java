@@ -150,7 +150,7 @@ public class JsonSerDe extends AbstractSerDe {
 
         // other configuration
         ignoreMalformedJson = Boolean.parseBoolean(tbl
-                .getProperty(PROP_IGNORE_MALFORMED_JSON, "false"));
+                .getProperty(PROP_IGNORE_MALFORMED_JSON, "true"));
         
     }
 

@@ -42,7 +42,11 @@ public class JavaStringIntObjectInspector
     @Override
     public int get(Object o) {
         if(o instanceof String) {
-           return ParsePrimitiveUtils.parseInt((String)o); 
+            try {
+                return ParsePrimitiveUtils.parseInt((String) o);
+            } catch (NumberFormatException e) {
+                return 0;
+            }
         } else {
            return (Integer) o;
         }
@@ -51,7 +55,11 @@ public class JavaStringIntObjectInspector
     @Override
     public Object getPrimitiveJavaObject(Object o)
     {
-        return get(o);
+        try {
+            return get(o);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
 
     @Override
